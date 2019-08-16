@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title> Introduction to DOM manipulation</title>
+        <title>Introduction to JQuery</title>
+        
+        <h1>Lets write a JQuery</h1>
+        <p>Jquery is one of the most popular libraries aroud the world.</p>
+        <p>The history of Jquery is old...</p>
+       
+      
+         <h2>List 1</h2>
+             <ul id ="list1"  class="unordered">
+                <li>list</li>
+                <li>list</li>
+                <li>list</li>
+             </ul>
+    
+      <h2>List2</h2>
+          <ol id ="list2" class="ordered">
+            <li>list</li>
+            <li>list</li>
+            <li>list</li>
+          </ol>
+          
+           <table>
+               <tr>
+                   <td>Item 1</td>
+                   <td>Item 2</td>
+                   <td>Item 3</td>
+               </tr>
+               <tr>
+                  <td>list</td>
+                  <td>list</td>
+                  <td>list</td>
+               </tr>
+               <tr>
+                   <td>list</td>
+                   <td>list</td>
+                   <td>list</td>
+               </tr>
+           </table>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+      <script>  
+  $(function() {
+      //$("#list1").css("background-color","yellowgreen");
+     $("ol.ordered").css("background-color","transparent");
+     $("ul").css("background-color", "transparent");
+     });
+     
+      
+
+      $(function() {
+      $("li").on("mouseenter",function() {
+      $(this).css("background-color","yellowgreen");
+      });
+      $("li").on("mouseleave",function() {
+      $(this).css("background-color","transparent");
+      });
+      });
+      
+    
+      $(function() {
+          $("table").find("td").on("click",function() {
+             $(this).text("DONE!") // body...
+          });
+      
+      
+      $(function() {
+       $("table").find("td").data("count",0)
+       .on("click",function() {
+           const $this = $(this);
+           let  count =$this.data("count") + 1;
+           $this.data("count", count).text(count);// boady...
+       })
+      });
+      });
+      
+  </script>
+  </head>
+  
+<body>
+        <h1 id="select"> Introduction to DOM manipulation </h1>
+        <h1> getting elements </h1>
+        <form>
+            <input type="text" name="" id = "name"/>
+            <input value="add" id="btn"/>
+        </form>
+        <style>
+        
+           #container {
+      width: 400px;
+      height: 400px;
+      position: relative;
+      background: yellow;
+        }
+        #animate {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      background-color: red;
+        } 
+        </style>
+        <p><button onclick="myMove()">Click Me</button></p> 
+
+         <div id ="container">
+           <div id ="animate"></div>
+           </div>
+           
+           
+         <h3>  TODO list </h3>
+        <ul id="lists">
+            <li></li>
+            </ul>
+            
+        <button type="button" id="deletebutton">delete</button>
+        
+        <script >
+        const lists= document.getElementById("lists");
+        const target= document.getElementById("btn");
+        target.style.color= "red";
+        target.addEventListener("click", function(){
+            const form = document.getElementById("name");
+            console.log("it was clicked");
+            const list = document.createElement("li");
+                list.textContent=form.value
+                list.addEventListener("click",function(e) {
+            const donelist=e.target;
+                donelist.style.textDecoration= "line-through";
+                donelist.style.color= "gray";
+                donelist.style.fontStyle= "italic";
+            console.log(e.target); // body...
+                    },false)
+                 lists.appendChild(list);
+                form.value="";
+        },false);
+        
+        const deletebutton= document .getElementById("deletebutton");
+        const list = document.getElementById("lists");
+            deletebutton.addEventListener("click", function(){
+       while(list.firstChild){
+             lists.removeChild(lists.firstChild);
+             }
+         },false)
+         
+         
+         
+  function myMove() {
+  var elem = document.getElementById("animate");   
+  var pos = 0;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (pos == 350) {
+         clearInterval(id);
+    } else {
+        pos++; 
+        elem.style.top = pos + "px"; 
+        elem.style.left = pos + "px"; 
+    }
+  }
+}
+        
+ </body>
+</html>
