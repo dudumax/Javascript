@@ -1,5 +1,5 @@
 
-const scores=[10,100,100,90,80,80,100,100];
+const scores=[59,100,100,90,80,80,100,100];
 var num_sub = scores.length;
 var sub01 = num_sub* 100; 
 var ps = 100*(num_sub + 1); //perfect score
@@ -27,10 +27,10 @@ function get_achievement(scores) {
 let number =scores.length;
 function get_pass_or_failure(scores) {
 for (let i = 0; i < number; i++ ) {
-  if (scores[i]<=60) {
-      return "failed";
-  } else {
+  if (scores[i]>=60) {
       return "passed";
+  } else {
+      return "failed";
   }
   }
 }
