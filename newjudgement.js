@@ -1,8 +1,11 @@
 
-const scores=[59,100,100,90,80,80,100,100];
+const scores=[59,60,60,60,60,60,60,60];
 var num_sub = scores.length;
 var sub01 = num_sub* 100; 
-var ps = 100*(num_sub + 1); //perfect score
+var ps = 100*(num_sub); //perfect score
+
+ 
+
  
 
 let sum=0;
@@ -43,6 +46,8 @@ function judgement(scores) {
 
 console.log(judgement(scores));
 console.log(sub01);
+
+
 
 
 
