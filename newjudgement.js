@@ -1,7 +1,6 @@
 
-const scores=[59,60,60,60,60,60,60,60];
+const scores=[60,60,60,59,60,60,60,60];
 var num_sub = scores.length;
-var sub01 = num_sub* 100; 
 var ps = 100*(num_sub); //perfect score
 
  
@@ -15,7 +14,7 @@ console.log(sum);
 
 
 
-function get_achievement(scores) {
+function get_achievement() {
       if (sum >= (0.8*ps)) {
           return "A";
       }else if(sum >= (0.6*ps)){
@@ -27,13 +26,14 @@ function get_achievement(scores) {
       }
   }
   
-let number =scores.length;
+var i;
+var text = "";
 function get_pass_or_failure(scores) {
-for (let i = 0; i < number; i++ ) {
+for ( i = 0; i < scores.length; i++ ) {
   if (scores[i]>=60) {
-      return "passed";
+      text= "passed";
   } else {
-      return "failed";
+      text=  "failed";
   }
   }
 }
@@ -45,7 +45,7 @@ function judgement(scores) {
 }
 
 console.log(judgement(scores));
-console.log(sub01);
+console.log(ps);
 
 
 
