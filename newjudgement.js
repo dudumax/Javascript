@@ -1,5 +1,5 @@
 
-const scores=[60,60,60,60,60,60,60,60];
+const scores=[60,60,60,60,60,60,0,60];
 var num_sub = scores.length;
 var ps = 100*(num_sub); //perfect score
 
@@ -25,20 +25,25 @@ function get_achievement() {
           return "D";
       }
   }
-  
-var i;
-var value =59;
+
+
+
+
+
+
 function get_pass_or_failure(scores) {
-  if (scores.includes(value)) {
-      return "failed";
+for (let i= 0; i<scores.length; i++){
+  var value=[];
+  if (scores[i] < 60) {
+      value.push("failed");
+      { break; }
   } else {
-      return "passed";
+      
+      value.push("passed");
   }
   }
-
-  
-
-
+  return value;
+}
   
 function judgement(scores) {
     let achievement = get_achievement(scores);
@@ -48,6 +53,7 @@ function judgement(scores) {
 
 console.log(judgement(scores));
 console.log(ps);
+
 
 
 
